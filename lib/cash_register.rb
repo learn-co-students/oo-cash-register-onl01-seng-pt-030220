@@ -14,7 +14,7 @@
 require 'pry'
 class CashRegister
                     
-    attr_accessor :total, :discount, :quantity #builds my readers and writers
+    attr_accessor :total, :discount #builds my readers and writers
     attr_reader :price, :items #builds my writers
 
     # instantiates my CashRegister instances
@@ -49,6 +49,6 @@ class CashRegister
     end
 
     def void_last_transaction
-        @total = @total - @price.last
+        self.total = self.total - price.last
     end
 end
