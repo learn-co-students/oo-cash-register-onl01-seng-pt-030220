@@ -3,6 +3,7 @@ require 'pry'
 class CashRegister
   
   attr_accessor  :discount, :total, :add_item
+  attr_reader :apply_discount
   
  
   
@@ -27,14 +28,18 @@ class CashRegister
     
     bill_amount = @total.to_f
     
-    discount = @discount.to_f / 100
+      discount = @discount.to_f / 100
     
-    deduction = bill_amount * discount
-       final_amount_returned = @total - deduction
+         deduction = bill_amount * discount
+          
+           final_amount_returned = @total - deduction
+          
+              @total = final_amount_returned
+                  puts "After the discount, the total comes to $#{@total}."
 
-   
-   
-  end  
+  end 
+
+
   
 
 
