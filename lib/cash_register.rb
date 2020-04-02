@@ -1,20 +1,43 @@
+require 'pry'
+
 class CashRegister
   
-  attr_accessor :employee_discount
+  attr_accessor  :discount, :total, :add_item
   
-  def initialize(employee_discount = nil)
+ 
+  
+  def initialize(discount = nil)
     @total = 0
-    @employee_discount = employee_discount
+    @discount = discount
   end
   
-  # def discount
-  #   @discount  = discount
-  # end
+  def total
+    @total
+  end
   
-#     def discount(number)
-#     self.to_f / number.to_f * 100.0
-#   end
-# end
+  def add_item(title, price, quantity = 1)
+   
+    new_total  =  price * quantity
+    sum =  @total  +=  new_total
+           sum
+    
+  end
+  
+  def apply_discount
+    
+    bill_amount = @total.to_f
+    
+    discount = @discount.to_f / 100
+    
+    deduction = bill_amount * discount
+       final_amount_returned = @total - deduction
+
+   
+   
+  end  
+  
+
+
 
  
   
